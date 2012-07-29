@@ -3,11 +3,9 @@
     Copyright (c) 2012 Garry T. Williams
 */
 
-/*
-    Enumerated Lists
-*/
+/* Enumerated Lists */
 
-DROP TABLE game_type;
+DROP TABLE IF EXISTS game_type;
 
 CREATE TABLE game_type (
     id INTEGER,
@@ -18,7 +16,7 @@ INSERT INTO game_type VALUES(0, 'Pairs');
 INSERT INTO game_type VALUES(1, 'Teams - Swiss, KO');
 INSERT INTO game_type VALUES(4, 'BAM');
 
-DROP TABLE session_rating;
+DROP TABLE IF EXISTS session_rating;
 
 CREATE TABLE session_rating (
     id INTEGER,
@@ -28,7 +26,7 @@ CREATE TABLE session_rating (
 INSERT INTO session_rating VALUES(6,  'Regional');
 INSERT INTO session_rating VALUES(13, 'National');
 
-DROP TABLE score_method;
+DROP TABLE IF EXISTS score_method;
 
 CREATE TABLE score_method (
     id INTEGER,
