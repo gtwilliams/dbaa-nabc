@@ -16,13 +16,29 @@
     <http://www.gnu.org/licenses/>.
 */
 
+DROP TABLE IF EXISTS game;
+
+CREATE TABLE game (
+    player         VARCHAR(8),
+    first_name     VARCHAR(30),
+    last_name      VARCHAR(30),
+    city           VARCHAR(30),
+    state          VARCHAR(2),
+    country        VARCHAR(2),
+    session_rating INTEGER,
+    game_type      INTEGER,
+    score_method   INTEGER,
+    matches_played INTEGER
+);
+
 /* Enumerated Lists */
 
 DROP TABLE IF EXISTS game_type;
 
 CREATE TABLE game_type (
-    id INTEGER,
-    type VARCHAR(30)
+    id   INTEGER,
+    type VARCHAR(30),
+    PRIMARY KEY(id)
 );
 
 INSERT INTO game_type VALUES(0, 'Pairs');
@@ -32,8 +48,9 @@ INSERT INTO game_type VALUES(4, 'BAM');
 DROP TABLE IF EXISTS session_rating;
 
 CREATE TABLE session_rating (
-    id INTEGER,
-    rating VARCHAR(30)
+    id     INTEGER,
+    rating VARCHAR(30),
+    PRIMARY KEY(id)
 );
 
 INSERT INTO session_rating VALUES(6,  'Regional');
@@ -42,8 +59,9 @@ INSERT INTO session_rating VALUES(13, 'National');
 DROP TABLE IF EXISTS score_method;
 
 CREATE TABLE score_method (
-    id INTEGER,
-    method VARCHAR(30)
+    id     INTEGER,
+    method VARCHAR(30),
+    PRIMARY KEY(id)
 );
 
 INSERT INTO score_method VALUES(0,  'Matchpoints');
@@ -65,5 +83,12 @@ INSERT INTO score_method VALUES(15, 'Total Points');
 INSERT INTO score_method VALUES(16, 'Swiss BAM Matchpoints');
 INSERT INTO score_method VALUES(17, 'Bracketing Assignments');
 INSERT INTO score_method VALUES(18, 'Compact KO');
+
+ALTER TABLE game ADD CONSTRAINT
+    FOREIGN KEY(session_rating) REFERENCES session_rating(id);
+ALTER TABLE game ADD CONSTRAINT
+    FOREIGN KEY(game_type) REFERENCES game_type(id);
+ALTER TABLE game ADD CONSTRAINT
+    FOREIGN KEY(score_method) REFERENCES score_method(id);
 
 -- vim: sw=4 ts=8 ai syn=sql
