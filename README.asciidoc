@@ -6,4 +6,8 @@ various tournament data obtained from the ACBL.  The purpose is to
 analyze the tournament data for trends and/or correlations with
 respect to event start times.
 
+Files::
+acbl.sql:::
+Database definitions.
+
 // vim: sw=4 ts=8 ai syn=asciidoc
