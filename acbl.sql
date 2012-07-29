@@ -19,57 +19,57 @@
 DROP TABLE IF EXISTS game;
 
 CREATE TABLE game (
-    player         VARCHAR(8),
-    first_name     VARCHAR(30),
-    last_name      VARCHAR(30),
-    city           VARCHAR(30),
-    state          VARCHAR(2),
-    country        VARCHAR(2),
-    session_rating INTEGER,
-    game_type      INTEGER,
-    score_method   INTEGER,
-    matches_played INTEGER
-);
+    player         VARCHAR(8)  NOT NULL,
+    first_name     VARCHAR(30) NOT NULL,
+    last_name      VARCHAR(30) NOT NULL,
+    city           VARCHAR(30) NOT NULL,
+    state          VARCHAR(2)  NOT NULL,
+    country        VARCHAR(2)  NOT NULL,
+    session_rating INTEGER     NOT NULL,
+    game_type      INTEGER     NOT NULL,
+    score_method   INTEGER     NOT NULL,
+    matches_played INTEGER     NOT NULL
+) COMMENT 'A player in an event';
 
 /* Enumerated Lists */
 
 DROP TABLE IF EXISTS game_type;
 
 CREATE TABLE game_type (
-    id   INTEGER,
-    type VARCHAR(30),
+    id   INTEGER     NOT NULL,
+    type VARCHAR(30) NOT NULL,
     PRIMARY KEY(id)
 );
 
 DROP TABLE IF EXISTS session_rating;
 
 CREATE TABLE session_rating (
-    id     INTEGER,
-    rating VARCHAR(30),
+    id     INTEGER     NOT NULL,
+    rating VARCHAR(30) NOT NULL,
     PRIMARY KEY(id)
 );
 
 DROP TABLE IF EXISTS score_method;
 
 CREATE TABLE score_method (
-    id     INTEGER,
-    method VARCHAR(30),
+    id     INTEGER     NOT NULL,
+    method VARCHAR(30) NOT NULL,
     PRIMARY KEY(id)
 );
 
 DROP TABLE IF EXISTS country;
 
 CREATE TABLE country (
-    id      VARCHAR(2),
-    country VARCHAR(100),
+    id      VARCHAR(2)   NOT NULL,
+    country VARCHAR(100) NOT NULL,
     PRIMARY KEY(id)
 );
 
 DROP TABLE IF EXISTS state;
 
 CREATE TABLE state (
-    id    VARCHAR(2),
-    state VARCHAR(100),
+    id    VARCHAR(2)   NOT NULL,
+    state VARCHAR(100) NOT NULL,
     PRIMARY KEY(id)
 );
 
